@@ -1,3 +1,5 @@
+package pacoteCalculadora;
+
 
 import javax.swing.JOptionPane;
 
@@ -38,6 +40,8 @@ float a,b,resultado;
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton4 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -55,11 +59,15 @@ float a,b,resultado;
 
         jPanel2.setBackground(new java.awt.Color(238, 238, 254));
 
-        jTextFieldX.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldX.setText("X");
+        jTextFieldX.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldX.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextFieldXFocusGained(evt);
+            }
+        });
+        jTextFieldX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldXActionPerformed(evt);
             }
         });
         jTextFieldX.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -68,15 +76,14 @@ float a,b,resultado;
             }
         });
 
-        jTextFieldY.setForeground(new java.awt.Color(204, 204, 204));
-        jTextFieldY.setText("Y");
+        jTextFieldY.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldY.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldYKeyPressed(evt);
             }
         });
 
-        jTextFieldRESULT.setForeground(new java.awt.Color(204, 204, 204));
+        jTextFieldRESULT.setForeground(new java.awt.Color(102, 102, 102));
         jTextFieldRESULT.setText("RESULTADO");
         jTextFieldRESULT.setEnabled(false);
         jTextFieldRESULT.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -135,34 +142,49 @@ float a,b,resultado;
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel1.setText("X");
+
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Y");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldRESULT, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldX, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldY, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(14, 14, 14))))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jTextFieldX, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(jTextFieldY, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jTextFieldRESULT, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldX, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldY, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,13 +207,11 @@ float a,b,resultado;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -218,15 +238,15 @@ float a,b,resultado;
     }//GEN-LAST:event_jTextFieldXFocusGained
 
     private void jTextFieldXKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldXKeyPressed
-        jTextFieldX.setText(" ");
+        
     }//GEN-LAST:event_jTextFieldXKeyPressed
 
     private void jTextFieldYKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldYKeyPressed
-         jTextFieldY.setText(" ");
+       
     }//GEN-LAST:event_jTextFieldYKeyPressed
 
     private void jTextFieldRESULTKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRESULTKeyPressed
-         jTextFieldRESULT.setText(" ");
+         
     }//GEN-LAST:event_jTextFieldRESULTKeyPressed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -276,10 +296,14 @@ float a,b,resultado;
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jTextFieldX.setText("X ");
-        jTextFieldY.setText("Y ");
+        jTextFieldX.setText(" ");
+        jTextFieldY.setText(" ");
         jTextFieldRESULT.setText("RESULTADO ");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldXActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldXActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +342,8 @@ float a,b,resultado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextFieldRESULT;
